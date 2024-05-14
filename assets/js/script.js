@@ -6,7 +6,29 @@ function criaCalculadora() {
         inicia() {
             this.clickBtns()
         },
+        
+        clickBtns() {
+            document.addEventListener('click', function(e) {
+                const el = e.target
 
+                if(el.classList.contains('btn-num')) {
+                    this.btnParaDisplay(el.innerText)
+                }
+
+                if(el.classList.contains('btn-clear')) {
+                    this.clearDisplay()
+                }
+
+                if(el.classList.contains('btn-del')) {
+                    this.apagaUm()
+                }
+
+                if(el.classList.contains('btn-eq')) {
+                    this.realizaConta()
+                }
+            }.bind(this))
+        },
+        
         realizaConta() {
             let conta = this.display.value
 
@@ -31,28 +53,6 @@ function criaCalculadora() {
 
         apagaUm() {
             this.display.value = this.display.value.slice(0, -1)
-        },
-
-        clickBtns() {
-            document.addEventListener('click', function(e) {
-                const el = e.target
-
-                if(el.classList.contains('btn-num')) {
-                    this.btnParaDisplay(el.innerText)
-                }
-
-                if(el.classList.contains('btn-clear')) {
-                    this.clearDisplay()
-                }
-
-                if(el.classList.contains('btn-del')) {
-                    this.apagaUm()
-                }
-
-                if(el.classList.contains('btn-eq')) {
-                    this.realizaConta()
-                }
-            }.bind(this))
         },
 
         btnParaDisplay(valor) {
