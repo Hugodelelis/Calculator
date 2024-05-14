@@ -58,7 +58,7 @@ body {
     color: black;
 }
 
-.calculadora tr td .btn-num:hover {
+.calculadora tr td button:hover {
     background-color: rgb(84, 84, 84);
 }
 
